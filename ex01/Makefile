@@ -8,11 +8,11 @@ CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
 # Executable
-NAME = 
+NAME = fixedFixed
 
 # Source files
 SRC = main.cpp \
-
+	Fixed.cpp \
 
 
 

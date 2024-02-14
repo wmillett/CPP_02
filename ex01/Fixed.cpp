@@ -1,9 +1,20 @@
+
 #include "Fixed.hpp"
 
 const int Fixed::bits = 8;
 
 Fixed::Fixed() : value(0) {
     std::cout << "Default constructor called" << std::endl;
+}
+
+Fixed::Fixed(const int raw) {
+    std::cout << "Int constructor called" << std::endl;
+    this->value = raw << bits;
+}
+
+Fixed::Fixed(const float raw) {
+    std::cout << "Float constructor called" << std::endl;
+    this->value = static_cast<int>(raw * (1 << bits) + 0.5f);
 }
 
 Fixed::Fixed(const Fixed& other) : value(other.value) {
@@ -30,4 +41,17 @@ int Fixed::getRawBits() const {
 void Fixed::setRawBits(int const raw) {
     std::cout << "setRawBits member function called" << std::endl;
     this->value = raw;
+}
+
+float Fixed::toFloat() const {
+    return static_cast<float>(this->value) / (1 << bits);
+}
+
+int Fixed::toInt() const {
+    return this->value >> bits;
+}
+
+std::ostream& operator<<(std::ostream& os, const Fixed& fixed) {
+    os << fixed.toFloat();
+    return os;
 }

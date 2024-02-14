@@ -8,14 +8,11 @@ CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
 # Executable
-NAME = 
+NAME = fixedPoint
 
 # Source files
 SRC = main.cpp \
-
-
-
-
+		Fixed.cpp \
 # Object files
 OBJS = $(SRC:%.cpp=%.o)
 
